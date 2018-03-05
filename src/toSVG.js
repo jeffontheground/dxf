@@ -24,7 +24,7 @@ const polylineToPath = (rgb, polyline) => {
     acc += point[0] + ',' + point[1]
     return acc
   }, '')
-  return '<path fill="none" stroke="' + hex + '" stroke-width="0.1%" d="' + d + '"/>'
+  return '<path fill="#ffffff" stroke="' + hex + '" stroke-width="1px" d="' + d + '"/>'
 }
 
 /**
@@ -74,6 +74,6 @@ export default (parsed) => {
     (-1) + ' ' +
     (bbox.width + 2) + ' ' +
     (bbox.height + 2) + '"'
-  svgString += ' width="100%" height="100%">' + paths.join('') + '</svg>'
+  svgString += ` width="${bbox.width + 2}" height="${bbox.height + 2}">` + paths.join('') + '</svg>'
   return pd.xml(svgString)
 }
